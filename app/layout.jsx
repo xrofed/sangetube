@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { siteConfig } from '@/lib/seo';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import AdblockDetected from '@/components/AdblockDetected';
 
 const siteName = siteConfig.name;
 
@@ -69,6 +70,7 @@ export default function RootLayout({ children }) {
           data-admpid="314095"
           strategy="afterInteractive"
         />
+        <AdblockDetected />
         <Header siteName={siteName} />
         <main className="min-h-screen">{children}</main>
         <Footer siteName={siteName} />
