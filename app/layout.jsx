@@ -1,4 +1,5 @@
 import './globals.css';
+import Script from 'next/script';
 import { siteConfig } from '@/lib/seo';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -63,6 +64,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <Script
+          src="https://js.wpadmngr.com/static/adManager.js"
+          data-admpid="314095"
+          strategy="afterInteractive"
+        />
         <Header siteName={siteName} />
         <main className="min-h-screen">{children}</main>
         <Footer siteName={siteName} />
