@@ -10,7 +10,7 @@ export default function Footer({ siteName = process.env.SITE_NAME || 'VideoSite'
           <div>
             <span className="font-display text-xl text-white">{siteName}</span>
             <p className="text-neutral-500 text-sm mt-2 leading-relaxed">
-              Platform video streaming terbaik dengan ribuan konten pilihan.
+              Nonton bokep bocil terbaru, bokep chindo terbaik, bokep bocil smp, bokep hijab, bokep bocil colmek dan segudang bokep update terbaru setiap harinya. ${process.env.SITE_NAME || 'VideoSite'}.
             </p>
           </div>
           <div>

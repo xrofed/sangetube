@@ -30,11 +30,19 @@ export default function AdBanner({ slot = 'leaderboard', className = '' }) {
   const config = SLOT_CONFIG[slot] || SLOT_CONFIG.leaderboard;
 
   useEffect(() => {
-    // Uncomment below when integrating AdSense:
-    // try {
-    //   (window.adsbygoogle = window.adsbygoogle || []).push({});
-    // } catch (e) {}
-  }, []);
+    if (slot !== 'rectangle' || !adRef.current) return;
+
+    adRef.current.innerHTML = '';
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://js.wpadmngr.com/static/adManager.js';
+    script.setAttribute('data-admpid', '412147');
+    adRef.current.appendChild(script);
+
+    return () => {
+      if (adRef.current) adRef.current.innerHTML = '';
+    };
+  }, [slot]);
 
   return (
     <div className={`flex justify-center my-6 ${className}`}>
@@ -43,8 +51,7 @@ export default function AdBanner({ slot = 'leaderboard', className = '' }) {
         className={`ad-banner ${config.classes}`}
         aria-label="Advertisement"
       >
-        {/* Replace this with <ins class="adsbygoogle" ... /> for real ads */}
-        <span>{config.label}</span>
+        {slot !== 'rectangle' && <span>{config.label}</span>}
       </div>
     </div>
   );
